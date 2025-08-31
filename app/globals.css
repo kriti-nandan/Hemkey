@@ -1,0 +1,602 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens for luxury black, gold, white theme */
+  --background: oklch(1 0 0); /* White */
+  --foreground: oklch(0 0 0); /* Black */
+  --card: oklch(0.97 0 0); /* Light Gray */
+  --card-foreground: oklch(0 0 0); /* Black */
+  --popover: oklch(1 0 0); /* White */
+  --popover-foreground: oklch(0 0 0); /* Black */
+  --primary: oklch(0 0 0); /* Black */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.75 0.15 85); /* Gold */
+  --secondary-foreground: oklch(0 0 0); /* Black */
+  --muted: oklch(0.97 0 0); /* Light Gray */
+  --muted-foreground: oklch(0.4 0 0); /* Dark Gray */
+  --accent: oklch(0.75 0.15 85); /* Gold */
+  --accent-foreground: oklch(0 0 0); /* Black */
+  --destructive: oklch(0.6 0.25 25); /* Red */
+  --destructive-foreground: oklch(1 0 0); /* White */
+  --border: oklch(0.75 0.15 85); /* Gold */
+  --input: oklch(1 0 0); /* White */
+  --ring: oklch(0.75 0.15 85 / 0.5); /* Light Gold */
+  --chart-1: oklch(0 0 0); /* Black */
+  --chart-2: oklch(0.75 0.15 85); /* Gold */
+  --chart-3: oklch(1 0 0); /* White */
+  --chart-4: oklch(0.97 0 0); /* Light Gray */
+  --chart-5: oklch(0 0 0); /* Black */
+  --radius: 0.5rem;
+  --sidebar: oklch(0.97 0 0); /* Light Gray */
+  --sidebar-foreground: oklch(0 0 0); /* Black */
+  --sidebar-primary: oklch(0.75 0.15 85); /* Gold */
+  --sidebar-primary-foreground: oklch(0 0 0); /* Black */
+  --sidebar-accent: oklch(1 0 0); /* White */
+  --sidebar-accent-foreground: oklch(0 0 0); /* Black */
+  --sidebar-border: oklch(0.75 0.15 85); /* Gold */
+  --sidebar-ring: oklch(0.75 0.15 85 / 0.5); /* Light Gold */
+}
+
+.dark {
+  /* Updated dark mode tokens to maintain luxury theme */
+  --background: oklch(0 0 0); /* Black */
+  --foreground: oklch(1 0 0); /* White */
+  --card: oklch(0.1 0 0); /* Dark Gray */
+  --card-foreground: oklch(1 0 0); /* White */
+  --popover: oklch(0 0 0); /* Black */
+  --popover-foreground: oklch(1 0 0); /* White */
+  --primary: oklch(0.75 0.15 85); /* Gold */
+  --primary-foreground: oklch(0 0 0); /* Black */
+  --secondary: oklch(0.1 0 0); /* Dark Gray */
+  --secondary-foreground: oklch(1 0 0); /* White */
+  --muted: oklch(0.1 0 0); /* Dark Gray */
+  --muted-foreground: oklch(0.6 0 0); /* Light Gray */
+  --accent: oklch(0.75 0.15 85); /* Gold */
+  --accent-foreground: oklch(0 0 0); /* Black */
+  --destructive: oklch(0.6 0.25 25); /* Red */
+  --destructive-foreground: oklch(1 0 0); /* White */
+  --border: oklch(0.75 0.15 85); /* Gold */
+  --input: oklch(0.1 0 0); /* Dark Gray */
+  --ring: oklch(0.75 0.15 85 / 0.5); /* Light Gold */
+  --chart-1: oklch(0.75 0.15 85); /* Gold */
+  --chart-2: oklch(1 0 0); /* White */
+  --chart-3: oklch(0.1 0 0); /* Dark Gray */
+  --chart-4: oklch(0.6 0 0); /* Light Gray */
+  --chart-5: oklch(0.75 0.15 85); /* Gold */
+  --sidebar: oklch(0.1 0 0); /* Dark Gray */
+  --sidebar-foreground: oklch(1 0 0); /* White */
+  --sidebar-primary: oklch(0.75 0.15 85); /* Gold */
+  --sidebar-primary-foreground: oklch(0 0 0); /* Black */
+  --sidebar-accent: oklch(0.1 0 0); /* Dark Gray */
+  --sidebar-accent-foreground: oklch(1 0 0); /* White */
+  --sidebar-border: oklch(0.75 0.15 85); /* Gold */
+  --sidebar-ring: oklch(0.75 0.15 85 / 0.5); /* Light Gold */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Mobile-first responsive typography */
+  html {
+    font-size: 14px; /* Base size for mobile */
+  }
+  
+  @media (min-width: 640px) {
+    html {
+      font-size: 15px; /* Slightly larger for tablets */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    html {
+      font-size: 16px; /* Full size for desktop */
+    }
+  }
+  
+  /* Touch-friendly minimum sizes for all interactive elements */
+  button, 
+  [role="button"],
+  input,
+  select,
+  textarea,
+  a,
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Ensure images are responsive and don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  /* Responsive container system */
+  .container-responsive {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* Mobile: 16px */
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-responsive {
+      padding-left: 1.5rem; /* Tablet: 24px */
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-responsive {
+      padding-left: 2rem; /* Desktop: 32px */
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  /* Responsive spacing utilities */
+  .responsive-padding {
+    padding: 1rem; /* Mobile: 16px */
+  }
+  
+  @media (min-width: 640px) {
+    .responsive-padding {
+      padding: 1.5rem; /* Tablet: 24px */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .responsive-padding {
+      padding: 2rem; /* Desktop: 32px */
+    }
+  }
+  
+  /* Responsive section padding */
+  .section-padding {
+    padding-top: 2rem; /* Mobile: 32px */
+    padding-bottom: 2rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-padding {
+      padding-top: 3rem; /* Tablet: 48px */
+      padding-bottom: 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 5rem; /* Desktop: 80px */
+      padding-bottom: 5rem;
+    }
+  }
+  
+  /* Responsive grid utilities */
+  .responsive-grid {
+    display: grid;
+    gap: 1rem; /* Mobile: 16px */
+    grid-template-columns: 1fr;
+  }
+  
+  @media (min-width: 640px) {
+    .responsive-grid {
+      gap: 1.5rem; /* Tablet: 24px */
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .responsive-grid {
+      gap: 2rem; /* Desktop: 32px */
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Responsive text sizing with mobile-first approach */
+  .responsive-text-xs {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem;
+  }
+  
+  .responsive-text-sm {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem;
+  }
+  
+  .responsive-text-base {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem;
+  }
+  
+  .responsive-text-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem;
+  }
+  
+  .responsive-text-xl {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem;
+  }
+  
+  .responsive-text-2xl {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem;
+  }
+  
+  .responsive-text-3xl {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem;
+  }
+  
+  .responsive-text-4xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem;
+  }
+  
+  .responsive-text-5xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1;
+  }
+  
+  .responsive-text-6xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;
+  }
+  
+  /* Mobile text size adjustments */
+  @media (max-width: 640px) {
+    .responsive-text-4xl {
+      font-size: 1.875rem; /* 30px */
+      line-height: 2.25rem;
+    }
+    
+    .responsive-text-5xl {
+      font-size: 2.25rem; /* 36px */
+      line-height: 2.5rem;
+    }
+    
+    .responsive-text-6xl {
+      font-size: 2.5rem; /* 40px */
+      line-height: 1;
+    }
+  }
+  
+  /* Mobile-first navigation */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background);
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+  }
+  
+  .mobile-nav.open {
+    transform: translateX(0);
+  }
+  
+  /* Responsive aspect ratios */
+  .aspect-responsive {
+    aspect-ratio: 16 / 9;
+  }
+  
+  @media (max-width: 640px) {
+    .aspect-responsive {
+      aspect-ratio: 4 / 3;
+    }
+  }
+  
+  /* Responsive shadows */
+  .shadow-responsive {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  @media (min-width: 640px) {
+    .shadow-responsive {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .shadow-responsive {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  /* Responsive form elements */
+  input, select, textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  @media (max-width: 640px) {
+    input, select, textarea {
+      font-size: 16px;
+      padding: 0.75rem;
+    }
+  }
+  
+  /* Responsive button sizing */
+  .btn-responsive {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+  
+  @media (min-width: 640px) {
+    .btn-responsive {
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .btn-responsive {
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+    }
+  }
+}
+
+/* Added custom animations for luxury effects */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #000000, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive utility classes */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-block {
+    display: block !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-text-left {
+    text-align: left !important;
+  }
+  
+  .mobile-p-2 {
+    padding: 0.5rem !important;
+  }
+  
+  .mobile-p-4 {
+    padding: 1rem !important;
+  }
+  
+  .mobile-m-2 {
+    margin: 0.5rem !important;
+  }
+  
+  .mobile-m-4 {
+    margin: 1rem !important;
+  }
+  
+  .mobile-space-y-2 > * + * {
+    margin-top: 0.5rem !important;
+  }
+  
+  .mobile-space-y-4 > * + * {
+    margin-top: 1rem !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-hidden {
+    display: none !important;
+  }
+  
+  .tablet-block {
+    display: block !important;
+  }
+  
+  .tablet-text-center {
+    text-align: center !important;
+  }
+  
+  .tablet-text-left {
+    text-align: left !important;
+  }
+  
+  .tablet-grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .desktop-hidden {
+    display: none !important;
+  }
+  
+  .desktop-block {
+    display: block !important;
+  }
+  
+  .desktop-text-center {
+    text-align: center !important;
+  }
+  
+  .desktop-text-left {
+    text-align: left !important;
+  }
+  
+  .desktop-grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  .desktop-grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* Responsive table styles */
+@media (max-width: 768px) {
+  .responsive-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .responsive-table table {
+    min-width: 600px;
+  }
+}
+
+/* Responsive card grid */
+.responsive-card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .responsive-card-grid {
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-card-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Responsive hero section */
+.hero-responsive {
+  min-height: 100vh;
+  padding-top: 4rem; /* Account for fixed navbar */
+}
+
+@media (max-width: 640px) {
+  .hero-responsive {
+    min-height: 80vh;
+    padding-top: 3rem;
+  }
+}
+
+/* Responsive navigation */
+.nav-responsive {
+  height: 4rem; /* 64px */
+}
+
+@media (max-width: 640px) {
+  .nav-responsive {
+    height: 3.5rem; /* 56px */
+  }
+}
+
+/* Responsive footer */
+.footer-responsive {
+  padding: 2rem 0;
+}
+
+@media (min-width: 640px) {
+  .footer-responsive {
+    padding: 3rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-responsive {
+    padding: 4rem 0;
+  }
+}
