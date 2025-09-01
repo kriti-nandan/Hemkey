@@ -156,7 +156,7 @@ export default function ContactPage() {
       country: "UAE",
       city: "Dubai",
       address: "Tamani Art Tower, Business Bay, Dubai, UAE",
-      phone: "+971 4 123 4567",
+      phone: "+971 58 506 3124",
       email: "business@hemkey.com",
       hours: "Sunday - Thursday: 9:00 AM - 6:00 PM",
       mapUrl:
@@ -168,7 +168,7 @@ export default function ContactPage() {
       country: "Australia",
       city: "Melbourne",
       address: "Corio Village Commercial Complex, Bacchus Marsh Road, Geelong, Melbourne, Australia",
-      phone: "+61 3 9876 5432",
+      phone: "+61 466 303 350",
       email: "business@hemkey.com",
       hours: "Monday - Friday: 9:00 AM - 5:00 PM",
       mapUrl:
@@ -180,7 +180,7 @@ export default function ContactPage() {
       country: "India",
       city: "Gurugram",
       address: "DLF Corporate Greens, Sector 74 A, Gurugram, Haryana, India",
-      phone: "+91 124 456 7890",
+      phone: "+91 7015723082",
       email: "business@hemkey.com",
       hours: "Monday - Saturday: 9:30 AM - 6:30 PM",
       mapUrl:
@@ -486,7 +486,7 @@ export default function ContactPage() {
                         </p>
                         <div className="flex items-center gap-2">
                           <Phone className="h-3 w-3 text-accent" />
-                          <span className="font-medium text-xs">Emergency: +1 800 HEMKEY</span>
+                          <span className="font-medium text-xs">Emergency: +91 7015723082 HEMKEY</span>
                         </div>
                       </div>
                     </div>
@@ -667,9 +667,9 @@ export default function ContactPage() {
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
                 <img
-                  src="/hemkey-complete-logo.png"
+                  src="/hemkey loogo.jpg"
                   alt="HEMKEY Logo"
-                  className="h-10 w-auto mr-4 brightness-0 invert"
+                  className="h-12 w-auto mr-4"
                 />
                 <div>
                   <h3 className="text-2xl font-bold">HEMKEY</h3>

@@ -3,11 +3,21 @@ import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('=== CONTACT FORM SUBMISSION START ===')
+    console.log('Environment variables check:')
+    console.log('SMTP_HOST:', process.env.SMTP_HOST || 'NOT SET')
+    console.log('SMTP_PORT:', process.env.SMTP_PORT || 'NOT SET')
+    console.log('SMTP_USER:', process.env.SMTP_USER || 'NOT SET')
+    console.log('SMTP_PASS:', process.env.SMTP_PASS ? 'SET (hidden)' : 'NOT SET')
+    console.log('')
+    
     const body = await request.json()
     const { name, email, phone, company, subject, budget, propertyType, message } = body
+    console.log('Form data received:', { name, email, phone, subject, budget, propertyType, messageLength: message?.length })
 
     // Validate required fields
     if (!name || !email || !phone || !message) {
+      console.log('❌ Validation failed - missing required fields')
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -23,7 +33,17 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Check if SMTP configuration is available
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('SMTP configuration missing. Please set SMTP_USER and SMTP_PASS environment variables.')
+      return NextResponse.json(
+        { error: 'Email service not configured. Please contact support.' },
+        { status: 500 }
+      )
+    }
+
     // Create transporter
+    console.log('Creating SMTP transporter...')
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.gmail.com',
       port: parseInt(process.env.SMTP_PORT || '587'),
@@ -33,6 +53,50 @@ export async function POST(request: NextRequest) {
         pass: process.env.SMTP_PASS,
       },
     })
+    console.log('SMTP transporter created successfully')
+
+    // Verify transporter configuration
+    try {
+      console.log('Verifying SMTP connection...')
+      await transporter.verify()
+      console.log('SMTP transporter verified successfully')
+    } catch (verifyError) {
+      console.error('SMTP verification failed:', verifyError)
+      return NextResponse.json(
+        { 
+          error: 'Email service configuration error. Please contact support.',
+          details: {
+            message: verifyError instanceof Error ? verifyError.message : 'Unknown verification error',
+            code: (verifyError as any).code
+          }
+        },
+        { status: 500 }
+      )
+    }
+
+    // Get client IP address safely
+    const getClientIP = (req: NextRequest): string => {
+      try {
+        const forwarded = req.headers.get('x-forwarded-for')
+        const realIP = req.headers.get('x-real-ip')
+        const cfConnectingIP = req.headers.get('cf-connecting-ip')
+        
+        if (forwarded) {
+          return forwarded.split(',')[0].trim()
+        }
+        if (realIP) {
+          return realIP
+        }
+        if (cfConnectingIP) {
+          return cfConnectingIP
+        }
+        return 'Unknown'
+      } catch {
+        return 'Unknown'
+      }
+    }
+
+    const clientIP = getClientIP(request)
 
         // Create the shared HTML email content
     const emailHtmlContent = `
@@ -171,7 +235,7 @@ export async function POST(request: NextRequest) {
                 </div>
                 <div style="display: flex; align-items: center;">
                   <span style="font-size: 16px; margin-right: 8px; color: #007bff;">🌍</span>
-                  <strong>IP Address:</strong> ${request.headers.get('x-forwarded-for') || request.ip || 'Unknown'}
+                  <strong>IP Address:</strong> ${clientIP}
                 </div>
               </div>
             </div>
@@ -218,7 +282,7 @@ ${propertyType ? `- Property Type: ${propertyType}` : ''}
 - Message: ${message}
 
 Submission Time: ${new Date().toLocaleString()}
-IP Address: ${request.headers.get('x-forwarded-for') || request.ip || 'Unknown'}
+IP Address: ${clientIP}
 
 ---
 This email was sent from the HEMKEY website ${subject && subject.includes('Partner Request') ? 'partner form' : 'contact form'}.
@@ -254,7 +318,7 @@ This email was sent from the HEMKEY website ${subject && subject.includes('Partn
       userEmailSent = true
     } catch (error) {
       console.error('Error sending user confirmation email:', error)
-      userEmailError = error.message
+      userEmailError = error instanceof Error ? error.message : 'Unknown error occurred'
     }
 
     // Return success response
@@ -274,8 +338,33 @@ This email was sent from the HEMKEY website ${subject && subject.includes('Partn
   } catch (error) {
     console.error('Email sending error:', error)
     
+    // Provide more detailed error information for debugging
+    let errorMessage = 'Failed to send email. Please try again later.'
+    let errorDetails = null
+    
+    if (error instanceof Error) {
+      errorDetails = {
+        message: error.message,
+        code: (error as any).code,
+        stack: error.stack
+      }
+      
+      // Handle specific SMTP errors
+      if ((error as any).code === 'EAUTH') {
+        errorMessage = 'Email authentication failed. Please check SMTP credentials.'
+      } else if ((error as any).code === 'ECONNECTION') {
+        errorMessage = 'Email connection failed. Please check SMTP settings.'
+      } else if ((error as any).code === 'ETIMEDOUT') {
+        errorMessage = 'Email connection timed out. Please try again.'
+      }
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to send email. Please try again later.' },
+      { 
+        error: errorMessage,
+        details: errorDetails,
+        timestamp: new Date().toISOString()
+      },
       { status: 500 }
     )
   }

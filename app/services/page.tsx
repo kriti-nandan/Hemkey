@@ -361,10 +361,14 @@ export default function ServicesPage() {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
-                <img src="/hemkey-icon-logo.png" alt="HEMKEY Icon" className="h-8 w-auto sm:h-10 md:h-12 mr-4 brightness-0 invert" />
+                <img
+                  src="/hemkey loogo.jpg"
+                  alt="HEMKEY Logo"
+                  className="h-12 w-auto mr-4"
+                />
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold responsive-text-xl sm:responsive-text-2xl">HEMKEY</h3>
-                  <p className="text-primary-foreground/80 text-sm sm:text-base responsive-text-sm sm:responsive-text-base">Real Estate Excellence</p>
+                  <h3 className="text-2xl font-bold">HEMKEY</h3>
+                  <p className="text-primary-foreground/80">Real Estate Excellence</p>
                 </div>
               </div>
               <p className="text-primary-foreground/80 mb-6 max-w-md text-sm sm:text-base responsive-text-sm sm:responsive-text-base">

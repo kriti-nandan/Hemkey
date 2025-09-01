@@ -211,11 +211,7 @@ export default function MarketsPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       <div className="absolute bottom-6 left-6 text-white">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-4xl">{market.flag}</span>
-                          <h3 className="text-3xl font-bold">{market.country}</h3>
-                        </div>
-                        <p className="text-white/90 text-lg">{market.cities}</p>
+                        <h3 className="text-3xl font-bold">{market.country}</h3>
                       </div>
                     </div>
                   </motion.div>
@@ -436,7 +432,11 @@ export default function MarketsPage() {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
-                <img src="/hemkey-icon-logo.png" alt="HEMKEY Icon" className="h-12 w-auto mr-4 brightness-0 invert" />
+                <img
+                  src="/hemkey loogo.jpg"
+                  alt="HEMKEY Logo"
+                  className="h-12 w-auto mr-4"
+                />
                 <div>
                   <h3 className="text-2xl font-bold">HEMKEY</h3>
                   <p className="text-primary-foreground/80">Real Estate Excellence</p>

@@ -82,9 +82,9 @@ export default function AboutPage() {
   const achievements = [
     {
       icon: Building2,
-      number: "500+",
-      title: "Properties Managed",
-      description: "Successfully managed luxury properties across three continents",
+      number: "25+",
+      title: "Real Estate Dreams Fulfilled",
+      description: "Successfully fulfilled real estate dreams across three continents",
     },
     {
       icon: Globe,
@@ -402,7 +402,11 @@ export default function AboutPage() {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6 gap-3 sm:gap-4">
-                <img src="/hemkey-icon-logo.png" alt="HEMKEY Icon" className="h-6 w-auto sm:h-8 md:h-10 lg:h-12 brightness-0 invert" />
+                <img 
+                  src="/hemkey loogo.jpg" 
+                  alt="HEMKEY Logo" 
+                  className="h-8 w-auto sm:h-10 md:h-12 lg:h-14" 
+                />
                 <div>
                   <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold responsive-text-lg sm:responsive-text-xl lg:responsive-text-2xl">HEMKEY</h3>
                   <p className="text-primary-foreground/80 text-xs sm:text-sm md:text-base responsive-text-xs sm:responsive-text-sm">Real Estate Excellence</p>

@@ -12,8 +12,31 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { CheckCircle, ArrowLeft, Users, TrendingUp, Globe, Award } from "lucide-react"
 import Link from "next/link"
 
+// Define proper types for better type safety
+type PersonalInfo = {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  company: string
+  country: string
+  city: string
+}
+
+type Partnership = {
+  interestedMarkets: string[]
+  expectedVolume: string
+  partnershipGoals: string
+  additionalInfo: string
+}
+
+type FormData = {
+  personalInfo: PersonalInfo
+  partnership: Partnership
+}
+
 export default function BecomePartnerPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     personalInfo: {
       firstName: "",
       lastName: "",
@@ -24,7 +47,7 @@ export default function BecomePartnerPage() {
       city: "",
     },
     partnership: {
-      interestedMarkets: [] as string[],
+      interestedMarkets: [],
       expectedVolume: "",
       partnershipGoals: "",
       additionalInfo: "",
@@ -37,29 +60,28 @@ export default function BecomePartnerPage() {
   const [errorMessage, setErrorMessage] = useState("")
   const totalSteps = 2
 
-  const handleInputChange = (section: string, field: string, value: string) => {
+  const handleInputChange = (section: keyof FormData, field: string, value: string) => {
     setFormData((prev) => ({
       ...prev,
       [section]: {
-        ...prev[section as keyof typeof prev],
+        ...prev[section],
         [field]: value,
       },
     }))
   }
 
-  const handleArrayChange = (section: string, field: string, value: string, checked: boolean) => {
-    setFormData((prev) => {
-      const currentArray = prev[section as keyof typeof prev][field as keyof (typeof prev)[typeof section]] as string[]
-      const newArray = checked ? [...currentArray, value] : currentArray.filter((item) => item !== value)
-
-      return {
+  const handleArrayChange = (field: keyof Partnership, value: string, checked: boolean) => {
+    if (field === 'interestedMarkets') {
+      setFormData((prev) => ({
         ...prev,
-        [section]: {
-          ...prev[section as keyof typeof prev],
-          [field]: newArray,
+        partnership: {
+          ...prev.partnership,
+          interestedMarkets: checked 
+            ? [...prev.partnership.interestedMarkets, value] 
+            : prev.partnership.interestedMarkets.filter((item) => item !== value)
         },
-      }
-    })
+      }))
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -390,20 +412,25 @@ ${formData.partnership.additionalInfo || 'None provided'}`,
                 {/* Step 2: Partnership Preferences */}
                 {currentStep === 2 && (
                   <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-4">
-                        Interested Markets (Select all that apply)
+                    {/* Interested Markets */}
+                    <div className="space-y-3">
+                      <label className="text-sm font-medium text-muted-foreground">
+                        Interested Markets *
                       </label>
-                      <div className="grid md:grid-cols-3 gap-3">
+                      <div className="grid grid-cols-2 gap-3">
                         {["UAE", "Australia", "India"].map((market) => (
                           <div key={market} className="flex items-center space-x-2">
                             <Checkbox
-                              id={market}
+                              id={`market-${market}`}
+                              checked={formData.partnership.interestedMarkets.includes(market)}
                               onCheckedChange={(checked) =>
-                                handleArrayChange("partnership", "interestedMarkets", market, checked as boolean)
+                                handleArrayChange("interestedMarkets", market, checked as boolean)
                               }
                             />
-                            <label htmlFor={market} className="text-sm">
+                            <label
+                              htmlFor={`market-${market}`}
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
                               {market}
                             </label>
                           </div>
@@ -486,7 +513,11 @@ ${formData.partnership.additionalInfo || 'None provided'}`,
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
-                <img src="/hemkey-icon-logo.png" alt="HEMKEY Icon" className="h-12 w-auto mr-4 brightness-0 invert" />
+                <img
+                  src="/hemkey loogo.jpg"
+                  alt="HEMKEY Logo"
+                  className="h-12 w-auto mr-4"
+                />
                 <div>
                   <h3 className="text-2xl font-bold">HEMKEY</h3>
                   <p className="text-primary-foreground/80">Real Estate Excellence</p>

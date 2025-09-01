@@ -365,119 +365,109 @@ export default function HemkeyHomepage() {
       <VisitorCounter />
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground footer-responsive">
-        <div className="container-responsive">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+      <footer className="bg-primary text-primary-foreground py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            {/* Company Info */}
             <div className="md:col-span-2">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6 gap-3 sm:gap-4">
+              <div className="flex items-center mb-6">
                 <img
-                  src="/hemkey-icon-logo.png"
-                  alt="HEMKEY Icon"
-                  className="h-6 w-auto sm:h-8 md:h-10 lg:h-12 brightness-0 invert"
+                  src="/hemkey loogo.jpg"
+                  alt="HEMKEY Logo"
+                  className="h-12 w-auto mr-4"
                 />
                 <div>
-                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold responsive-text-lg sm:responsive-text-xl lg:responsive-text-2xl">HEMKEY</h3>
-                  <p className="text-primary-foreground/80 text-xs sm:text-sm md:text-base responsive-text-xs sm:responsive-text-sm">Real Estate Excellence</p>
+                  <h3 className="text-2xl font-bold">HEMKEY</h3>
+                  <p className="text-primary-foreground/80">Real Estate Excellence</p>
                 </div>
               </div>
-              <p className="text-primary-foreground/80 mb-4 sm:mb-6 max-w-md text-justify text-xs sm:text-sm md:text-base responsive-text-xs sm:responsive-text-sm">
+              <p className="text-primary-foreground/80 mb-6 max-w-md">
                 Empowering real estate growth across borders. Your trusted channel partner in UAE, Australia, and India,
                 delivering exceptional investment opportunities since 2020.
               </p>
-              <div className="flex space-x-3 sm:space-x-4">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors cursor-pointer min-h-[44px] min-w-[44px] touch-target">
-                  <span className="text-xs sm:text-sm font-bold">f</span>
+              <div className="flex space-x-4">
+                <div className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors cursor-pointer">
+                  <span className="text-sm font-bold">f</span>
                 </div>
-                <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors cursor-pointer min-h-[44px] min-w-[44px] touch-target">
-                  <span className="text-xs sm:text-sm font-bold">in</span>
+                <div className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors cursor-pointer">
+                  <span className="text-sm font-bold">in</span>
                 </div>
-                <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors cursor-pointer min-h-[44px] min-w-[44px] touch-target">
-                  <span className="text-xs sm:text-sm font-bold">@</span>
+                <div className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors cursor-pointer">
+                  <span className="text-sm font-bold">@</span>
                 </div>
               </div>
             </div>
 
+            {/* Quick Links */}
             <div>
-              <h4 className="text-sm sm:text-base md:text-lg font-bold mb-4 sm:mb-6 responsive-text-base sm:responsive-text-lg">Quick Links</h4>
-              <div className="space-y-2 sm:space-y-3">
-                <Link
-                  href="/about"
-                  className="block text-primary-foreground/80 hover:text-accent transition-colors text-xs sm:text-sm md:text-base py-1 min-h-[44px] flex items-center touch-target responsive-text-xs sm:responsive-text-sm md:responsive-text-base"
-                >
+              <h4 className="text-lg font-bold mb-6">Quick Links</h4>
+              <div className="space-y-3">
+                <Link href="/about" className="block text-primary-foreground/80 hover:text-accent transition-colors">
                   About Us
                 </Link>
-                <Link
-                  href="/services"
-                  className="block text-primary-foreground/80 hover:text-accent transition-colors text-xs sm:text-sm md:text-base py-1 min-h-[44px] flex items-center touch-target responsive-text-xs sm:responsive-text-sm md:responsive-text-base"
-                >
+                <Link href="/services" className="block text-primary-foreground/80 hover:text-accent transition-colors">
                   Our Services
                 </Link>
-                <Link
-                  href="/markets"
-                  className="block text-primary-foreground/80 hover:text-accent transition-colors text-xs sm:text-sm md:text-base py-1 min-h-[44px] flex items-center touch-target responsive-text-xs sm:responsive-text-sm md:responsive-text-base"
-                >
+                <Link href="/markets" className="block text-primary-foreground/80 hover:text-accent transition-colors">
                   Global Markets
                 </Link>
-                <Link
-                  href="/contact"
-                  className="block text-primary-foreground/80 hover:text-accent transition-colors text-xs sm:text-sm md:text-base py-1 min-h-[44px] flex items-center touch-target responsive-text-xs sm:responsive-text-sm md:responsive-text-base"
-                >
+                <Link href="/contact" className="block text-accent font-medium">
                   Contact Us
                 </Link>
                 <Link
                   href="/become-partner"
-                  className="block text-primary-foreground/80 hover:text-accent transition-colors text-xs sm:text-sm md:text-base py-1 min-h-[44px] flex items-center touch-target responsive-text-xs sm:responsive-text-sm md:responsive-text-base"
+                  className="block text-primary-foreground/80 hover:text-accent transition-colors"
                 >
                   Become a Partner
                 </Link>
               </div>
             </div>
 
+            {/* Markets */}
             <div>
-              <h4 className="text-sm sm:text-base md:text-lg font-bold mb-4 sm:mb-6 responsive-text-base sm:responsive-text-lg">Our Markets</h4>
-              <div className="space-y-2 sm:space-y-3">
+              <h4 className="text-lg font-bold mb-6">Our Markets</h4>
+              <div className="space-y-3">
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
                     <span>🇦🇪</span>
-                    <span className="font-medium text-xs sm:text-sm md:text-base responsive-text-xs sm:responsive-text-sm md:responsive-text-base">UAE</span>
+                    <span className="font-medium">UAE</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm">
-                    Dubai, Abu Dhabi & Sharjah Waterfront City
-                  </p>
+                  <p className="text-sm text-primary-foreground/60">Dubai & Abu Dhabi</p>
                 </div>
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
                     <span>🇦🇺</span>
-                    <span className="font-medium text-xs sm:text-sm md:text-base responsive-text-xs sm:responsive-text-sm md:responsive-text-base">Australia</span>
+                    <span className="font-medium">Australia</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm">Sydney & Melbourne</p>
+                  <p className="text-sm text-primary-foreground/60">Sydney & Melbourne</p>
                 </div>
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
                     <span>🇮🇳</span>
-                    <span className="font-medium text-xs sm:text-sm md:text-base responsive-text-xs sm:responsive-text-sm md:responsive-text-base">India</span>
+                    <span className="font-medium">India</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm">Mumbai & Bangalore</p>
+                  <p className="text-sm text-primary-foreground/60">Mumbai & Bangalore</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-primary-foreground/20 pt-6 sm:pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="text-center md:text-left">
-                <p className="text-primary-foreground/60 text-xs sm:text-sm responsive-text-xs sm:responsive-text-sm">
+          {/* Bottom Section */}
+          <div className="border-t border-primary-foreground/20 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="text-center md:text-left mb-4 md:mb-0">
+                <p className="text-primary-foreground/60">
                   &copy; 2025 HEMKEY. All rights reserved. | Empowering Global Real Estate Investment
                 </p>
               </div>
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm responsive-text-xs sm:responsive-text-sm">
-                <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors min-h-[44px] flex items-center touch-target">
+              <div className="flex space-x-6 text-sm">
+                <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
                   Privacy Policy
                 </a>
-                <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors min-h-[44px] flex items-center touch-target">
+                <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
                   Terms of Service
                 </a>
-                <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors min-h-[44px] flex items-center touch-target">
+                <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
                   Cookie Policy
                 </a>
               </div>
