@@ -14,6 +14,7 @@ import {
   Hammer,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { VisitorCounter } from "@/components/VisitorCounter"
 
 export default function HemkeyHomepage() {
@@ -176,9 +177,13 @@ export default function HemkeyHomepage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
             >
-              <div
-                className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${carouselImages[currentSlide].url})` }}
+              <Image
+                src={carouselImages[currentSlide].url}
+                alt={carouselImages[currentSlide].title}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-black/40" />
             </motion.div>
@@ -344,9 +349,13 @@ export default function HemkeyHomepage() {
                   className="group relative overflow-hidden rounded-xl bg-card shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer"
                 >
                   <div className="aspect-[16/9] relative">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                      style={{ backgroundImage: `url(${location.image})` }}
+                    <Image
+                      src={location.image}
+                      alt={location.name}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 text-white">

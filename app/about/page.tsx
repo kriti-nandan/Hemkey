@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Globe, Users, TrendingUp, Award, Building2, Target, Lightbulb } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 // Custom hook for animated counter
 function useCounterAnimation(target: number, duration: number = 2000) {
@@ -180,10 +181,13 @@ export default function AboutPage() {
               className="relative"
             >
               <div className="relative h-56 sm:h-64 md:h-72 lg:h-80 rounded-lg overflow-hidden">
-                <img
+                <Image
                   src="/luxury-cityscape-bg.png"
                   alt="Global real estate markets"
-                  className="w-full h-full object-cover"
+                  fill
+                  loading="lazy"
+                  sizes="100vw"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 left-3 sm:left-4 md:left-5 text-white">
