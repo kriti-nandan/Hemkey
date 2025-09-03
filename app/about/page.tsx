@@ -405,14 +405,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* Company Info */}
             <div className="md:col-span-2">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6 gap-3 sm:gap-4">
+              <div className="flex items-center mb-4 sm:mb-6 gap-0">
                 <img 
-                  src="/hemkey loogo.jpg" 
+                  src="/hemkey%20symbol%20-%20Edited.png" 
                   alt="HEMKEY Logo" 
-                  className="h-8 w-auto sm:h-10 md:h-12 lg:h-14" 
+                  className="h-10 w-auto sm:h-12 md:h-14 lg:h-16" 
                 />
-                <div>
-                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold responsive-text-lg sm:responsive-text-xl lg:responsive-text-2xl">HEMKEY</h3>
+                <div className="-ml-1">
+                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold responsive-text-lg sm:responsive-text-xl lg:responsive-text-2xl text-white leading-none tracking-tight">HEMKEY</h3>
                   <p className="text-primary-foreground/80 text-xs sm:text-sm md:text-base responsive-text-xs sm:responsive-text-sm">Real Estate Excellence</p>
                 </div>
               </div>
@@ -464,24 +464,24 @@ export default function AboutPage() {
               <div className="space-y-3">
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
-                    <span>🇦🇪</span>
+                    <span></span>
                     <span className="font-medium text-sm sm:text-base responsive-text-sm sm:responsive-text-base">UAE</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm">Dubai & Abu Dhabi</p>
+                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm"></p>
                 </div>
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
-                    <span>🇦🇺</span>
+                    <span></span>
                     <span className="font-medium text-sm sm:text-base responsive-text-sm sm:responsive-text-base">Australia</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm">Sydney & Melbourne</p>
+                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm"></p>
                 </div>
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
-                    <span>🇮🇳</span>
+                    <span></span>
                     <span className="font-medium text-sm sm:text-base responsive-text-sm sm:responsive-text-base">India</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm">Mumbai & Bangalore</p>
+                  <p className="text-xs sm:text-sm text-primary-foreground/60 responsive-text-xs sm:responsive-text-sm"></p>
                 </div>
               </div>
             </div>

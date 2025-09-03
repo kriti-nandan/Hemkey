@@ -1,3 +1,18 @@
+/* Compact brand unit utility for header/footer */
+.brand-compact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+.brand-compact img {
+  display: block;
+  margin-right: 0;
+}
+.brand-text {
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-left: 0;
+}
 @import "tailwindcss";
 @import "tw-animate-css";
 

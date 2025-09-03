@@ -39,12 +39,12 @@ export default function Navigation() {
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-accent/20 nav-responsive">
       <div className="container-responsive">
         <div className="flex justify-between items-center h-full">
-          <div className="flex items-center space-x-4">
-            <Link href="/" className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center gap-0">
               <img 
-                src="/hemkey final logo.png" 
-                alt="HEMKEY Logo" 
-                className="h-10 w-auto sm:h-12 md:h-14 lg:h-16" 
+                src="/hemkey-complete-logo.png" 
+                alt="HEMKEY" 
+                className="block h-10 w-auto sm:h-12 md:h-14 lg:h-16" 
               />
             </Link>
           </div>

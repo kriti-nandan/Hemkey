@@ -360,14 +360,10 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             {/* Company Info */}
             <div className="md:col-span-2">
-              <div className="flex items-center mb-6">
-                <img
-                  src="/hemkey loogo.jpg"
-                  alt="HEMKEY Logo"
-                  className="h-12 w-auto mr-4"
-                />
-                <div>
-                  <h3 className="text-2xl font-bold">HEMKEY</h3>
+              <div className="flex items-center mb-6 gap-0">
+                <img src="/hemkey%20symbol%20-%20Edited.png" alt="HEMKEY Logo" className="h-14 w-auto sm:h-16 md:h-18 lg:h-20" />
+                <div className="-ml-1">
+                  <h3 className="text-2xl font-bold text-white leading-none tracking-tight">HEMKEY</h3>
                   <p className="text-primary-foreground/80">Real Estate Excellence</p>
                 </div>
               </div>
@@ -419,24 +415,24 @@ export default function ServicesPage() {
               <div className="space-y-3">
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
-                    <span>🇦🇪</span>
+                    <span></span>
                     <span className="font-medium">UAE</span>
                   </div>
-                  <p className="text-sm text-primary-foreground/60">Dubai & Abu Dhabi</p>
+                  <p className="text-sm text-primary-foreground/60"></p>
                 </div>
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
-                    <span>🇦🇺</span>
+                    <span></span>
                     <span className="font-medium">Australia</span>
                   </div>
-                  <p className="text-sm text-primary-foreground/60">Sydney & Melbourne</p>
+                  <p className="text-sm text-primary-foreground/60"></p>
                 </div>
                 <div className="text-primary-foreground/80">
                   <div className="flex items-center gap-2 mb-1">
-                    <span>🇮🇳</span>
+                    <span></span>
                     <span className="font-medium">India</span>
                   </div>
-                  <p className="text-sm text-primary-foreground/60">Mumbai & Bangalore</p>
+                  <p className="text-sm text-primary-foreground/60"></p>
                 </div>
               </div>
             </div>
